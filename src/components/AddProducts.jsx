@@ -11,7 +11,7 @@ export default function AddProducts() {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    // ... (no change to user check, form data setup, or axios post)
+   
     const user = auth.currentUser;
     if (!user) {
       alert("You must be logged in to add a product.");
@@ -32,14 +32,13 @@ export default function AddProducts() {
       const cloudData = res.data;
       console.log("Uploaded image URL:", cloudData.secure_url);
 
-      // 1. Remove 'isCarted' from the new product object
+      
       const productData = {
         imageUrl: cloudData.secure_url,
         name: data.name,
         description: data.description,
         price: parseFloat(data.price),
         count: 1,
-        // isCarted: false, (REMOVED)
         isOrdered: false,
         userId: user.uid 
       };
@@ -56,7 +55,7 @@ export default function AddProducts() {
   };
 
   return (
-    // ... (no change to JSX)
+   
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="max-w-lg w-full bg-white rounded-xl shadow-lg p-8">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
