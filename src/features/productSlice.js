@@ -10,7 +10,7 @@ const productSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    // --- ADD PRODUCT ---
+   
     addProducts: (state, action) => {
       state.status = 'loading';
     },
@@ -19,7 +19,7 @@ const productSlice = createSlice({
       state.status = 'fulfilled';
     },
 
-    // --- DELETE PRODUCT ---
+    
     deleteProduct: (state, action) => {
       state.status = 'loading';
     },
@@ -29,7 +29,7 @@ const productSlice = createSlice({
       state.status = 'fulfilled';
     },
 
-    // --- UPDATE PRODUCT ---
+   
     updateProduct: (state, action) => {
       state.status = 'loading';
     },
@@ -42,9 +42,8 @@ const productSlice = createSlice({
       state.status = 'fulfilled';
     },
 
-    // --- (DELETED) markCart and unmarkCart are GONE ---
-
-    // --- ORDER LOGIC (This is correct) ---
+   
+   
     placeOrder: ( state , action ) => {
      const orderedProductsId=action.payload.map(product => product.id)
      state.products=state.products.map((product)=> {
@@ -59,7 +58,7 @@ const productSlice = createSlice({
 
   },
   extraReducers: (builder) => {
-    // ... (no change here)
+   
     builder
       .addCase(getDataFromDb.pending, (state) => {
         state.status = 'loading'
@@ -75,7 +74,7 @@ const productSlice = createSlice({
   }
 })
 
-// 1. REMOVED markCart and unmarkCart from the export
+
 export const { 
   addProducts, addProductSuccess, 
   deleteProduct, deleteProductSuccess,
